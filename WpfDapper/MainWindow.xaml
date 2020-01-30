@@ -50,7 +50,8 @@
             <TextBox x:Name="LandSearchBox"
                      Grid.Column="1"
                      Grid.Row="1"
-                     Margin="5">
+                     Margin="5"
+                     TextChanged="LandSearchBox_TextChanged">
             </TextBox>
             <TextBlock Text="Søg år:"
                        VerticalAlignment="Center"
@@ -61,7 +62,8 @@
             <TextBox x:Name="YearSearchBox"
                      Grid.Column="1"
                      Grid.Row="2"
-                     Margin="5">
+                     Margin="5"
+                     TextChanged="YearSearchBox_TextChanged">
             </TextBox>
             <TextBlock Text="Søg genre:"
                        VerticalAlignment="Center"
@@ -72,7 +74,8 @@
             <TextBox x:Name="GenreSearchBox"
                      Grid.Column="1"
                      Grid.Row="3"
-                     Margin="5">
+                     Margin="5"
+                     TextChanged="GenreSearchBox_TextChanged">
             </TextBox>
             <TextBlock Text="Søg oscars:"
                        VerticalAlignment="Center"
@@ -83,7 +86,8 @@
             <TextBox x:Name="OscarsSearchBox"
                      Grid.Column="1"
                      Grid.Row="4"
-                     Margin="5">
+                     Margin="5"
+                     TextChanged="OscarsSearchBox_TextChanged">
             </TextBox>
 
             <Button x:Name="SearchButton"

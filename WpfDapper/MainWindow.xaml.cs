@@ -30,6 +30,7 @@ namespace WpfDapper.GUI
             InitializeComponent();
             movies = biz.GetAllMovies();
             MovieList.ItemsSource = movies;
+            SearchMovies(TitelSearchBox,"Titel");
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
@@ -46,12 +47,33 @@ namespace WpfDapper.GUI
 
         private void TitelSearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            MovieList.ItemsSource = movies.Where(f => f.Titel.ToLower().Contains(TitelSearchBox.Text.ToLower())).ToList();
+            //MovieList.ItemsSource = movies.Where(f => f.Titel.ToLower().Contains(TitelSearchBox.Text.ToLower())).ToList();
+            SearchMovies(TitelSearchBox, "Titel");
         }
 
         private void SearchMovies(TextBox textBox, string searchType)
         {
-            MovieList.ItemsSource = movies.Where(f => f.searchType.Tolower().Contains(TitelSearchBox.Text.ToLower())).ToList();
+            MovieList.ItemsSource = movies.Where(f => f.GetPropertyValue(searchType).ToLower().Contains(textBox.Text.ToLower())).ToList();
+        }
+
+        private void LandSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchMovies(LandSearchBox, "Land");
+        }
+
+        private void YearSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchMovies(YearSearchBox, "Year");
+        }
+
+        private void GenreSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchMovies(GenreSearchBox, "Genre");
+        }
+
+        private void OscarsSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchMovies(OscarsSearchBox, "Oscars");
         }
     }
 }

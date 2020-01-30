@@ -15,5 +15,13 @@ namespace WpfDapper.Entities
         public string Genre { get; set; }
         public int Oscars { get; set; }
 
+        public string GetPropertyValue(string propertyName)
+        {
+            try
+            {
+                return $"{this.GetType().GetProperty(propertyName).GetValue(this, null)}";
+            }
+            catch { return null; }
+        }
     }
 }
