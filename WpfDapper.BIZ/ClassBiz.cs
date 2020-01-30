@@ -25,5 +25,15 @@ namespace WpfDapper.BIZ
             
             textBox.Text = text;
         }
+
+        public List<Movie> GetAllMovies()
+        {
+            return db.GetAllMovies();            
+        }
+
+        public void CreateMovie(string titel, string land, int year, string genre, int oscars)
+        {
+            db.InsertMovie(titel, land, year, genre, oscars);
+        }
     }
 }

@@ -91,7 +91,8 @@
             <Button x:Name="CreateMovieBtn"
                     Grid.Column="1"
                     Content="Opret Film"
-                    Margin="5 10"/>
+                    Margin="5 10"
+                    Click="CreateMovieBtn_Click" />
             <Button x:Name="CancelBtn"
                     Grid.Column="0"
                     Content="Fortryd"

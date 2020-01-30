@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfDapper.BIZ;
 using WpfDapper.GUI;
 
 namespace WpfDapper
@@ -20,6 +21,8 @@ namespace WpfDapper
     /// </summary>
     public partial class CreateMovie : Window
     {
+        ClassBiz biz = new ClassBiz();
+        
         public CreateMovie()
         {
             InitializeComponent();
@@ -27,6 +30,12 @@ namespace WpfDapper
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void CreateMovieBtn_Click(object sender, RoutedEventArgs e)
+        {
+            biz.CreateMovie(TitelTextBox.Text, LandTextBox.Text, int.Parse(YearTextBox.Text), GenreTextBox.Text, int.Parse(OscarsTextBox.Text));
             this.Close();
         }
     }

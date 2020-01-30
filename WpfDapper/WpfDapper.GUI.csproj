@@ -110,6 +110,10 @@
       <Project>{7F0F5926-CC93-4DB2-BD8E-AE6401A00F65}</Project>
       <Name>WpfDapper.BIZ</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WpfDapper.Entities\WpfDapper.Entities.csproj">
+      <Project>{E4D976E4-0905-4BDD-93F5-83FC01471944}</Project>
+      <Name>WpfDapper.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

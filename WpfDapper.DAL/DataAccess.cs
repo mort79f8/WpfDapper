@@ -25,5 +25,18 @@ namespace WpfDapper.DAL
         {
             throw new NotImplementedException();
         }
+
+        public void InsertMovie(string titel, string land, int year, string genre, int oscars)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(helper.CnnVal("FilmInfo")))
+            {
+                // Movie movie = new Movie { Titel = titel, Land = land, Year = year, Genre = genre, Oscars = oscars };
+                List<Movie> movies = new List<Movie>();
+
+                movies.Add(new Movie { Titel = titel, Land = land, Year = year, Genre = genre, Oscars = oscars });
+
+                connection.Execute("dbo.spFilm_InsertMovie @Titel, @Land, @Year, @Genre, @Oscars", movies);
+            }
+        }
     }
 }

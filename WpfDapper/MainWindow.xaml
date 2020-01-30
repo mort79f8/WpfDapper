@@ -6,9 +6,8 @@
         xmlns:local="clr-namespace:WpfDapper"
         mc:Ignorable="d"
         Title="Film Info"
-        Height="302.973"
-        Width="577.297"
-        ResizeMode="NoResize"
+        Height="320"
+        Width="650"
         WindowStartupLocation="CenterScreen">
     <Grid>
 
@@ -20,6 +19,7 @@
                 <RowDefinition Height="35" />
                 <RowDefinition Height="35" />
                 <RowDefinition Height="35" />
+                <RowDefinition Height="50" />
                 <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
@@ -38,7 +38,8 @@
             </TextBlock>
             <TextBox x:Name="TitelSearchBox"
                      Grid.Column="1"
-                     Margin="5">
+                     Margin="5"
+                     TextChanged="TitelSearchBox_TextChanged">
             </TextBox>
             <TextBlock Text="Søg land:"
                        VerticalAlignment="Center"
@@ -101,9 +102,15 @@
                     Click="CreateMovieBtn_Click" />
 
             <!--#region Search Result-->
-            <TextBox x:Name="SearchResultTextBox"
-                       Grid.Column="2"
-                       Grid.RowSpan="7"/>
+            <!--<TextBox x:Name="SearchResultTextBox"
+                     Grid.Column="2"
+                     Grid.RowSpan="7"/>-->
+            <GroupBox Grid.Column="2"
+                      Grid.RowSpan="7"
+                      Header="Film Liste">
+                <ListBox x:Name="MovieList" DisplayMemberPath="Titel">
+                </ListBox>
+            </GroupBox>
             <!--#endregion-->
         </Grid>
         <!--#endregion-->

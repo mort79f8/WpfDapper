@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfDapper.BIZ;
+using WpfDapper.Entities;
 
 namespace WpfDapper.GUI
 {
@@ -22,15 +23,18 @@ namespace WpfDapper.GUI
     public partial class MainWindow : Window
     {
         ClassBiz biz = new ClassBiz();
+        List<Movie> movies { get; set; } = new List<Movie>();
         
         public MainWindow()
         {
             InitializeComponent();
+            movies = biz.GetAllMovies();
+            MovieList.ItemsSource = movies;
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            biz.GetAllMovies(SearchResultTextBox);
+            //biz.GetAllMovies(SearchResultTextBox);
         }
 
         private void CreateMovieBtn_Click(object sender, RoutedEventArgs e)
@@ -40,5 +44,14 @@ namespace WpfDapper.GUI
             createMovie.Show();
         }
 
+        private void TitelSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            MovieList.ItemsSource = movies.Where(f => f.Titel.ToLower().Contains(TitelSearchBox.Text.ToLower())).ToList();
+        }
+
+        private void SearchMovies(TextBox textBox, string searchType)
+        {
+            MovieList.ItemsSource = movies.Where(f => f.searchType.Tolower().Contains(TitelSearchBox.Text.ToLower())).ToList();
+        }
     }
 }
