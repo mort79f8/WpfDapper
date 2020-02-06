@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -44,6 +45,16 @@ namespace WpfDapper.BIZ
         public void DeleteMovie(int id, string titel, string land, int year)
         {
             db.DeleteMovie(id, titel, land, year);
+        }
+
+        public void GetImage()
+        {
+
+            using (WebClient client = new WebClient())
+            {
+                client.DownloadFile(new Uri("HttpS://via.placeholder.com/150.png"), @"d:\test\image.png");
+            }
+
         }
     }
 }

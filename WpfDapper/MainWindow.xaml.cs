@@ -26,12 +26,15 @@ namespace WpfDapper.GUI
         public List<Movie> Movies { get; set; } = new List<Movie>();
         public Movie Movie { get; set; } = new Movie();
         
+
+
         public MainWindow()
         {
             InitializeComponent();
             Movies = biz.GetAllMovies();
             MovieList.ItemsSource = Movies;
             SearchMovies(TitelSearchBox,"Titel");
+            Poster.ImageSource = new BitmapImage(new Uri("https://via.placeholder.com/150.png"));
         }
 
         private void CreateMovieBtn_Click(object sender, RoutedEventArgs e)

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfDapper"
         mc:Ignorable="d"
         Title="Film Info"
-        Height="320"
+        Height="538"
         Width="650"
         WindowStartupLocation="CenterScreen"
         Activated="Window_Activated">
@@ -14,7 +14,8 @@
 
         <!--#region Search Grid-->        
         <Grid Grid.Row="0">
-                
+
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="35" />
                 <RowDefinition Height="35" />
@@ -126,6 +127,94 @@
                 <ListBox x:Name="MovieList" DisplayMemberPath="Titel">
                 </ListBox>
             </GroupBox>
+            <!--#endregion-->
+            
+            <!--#region Film Info-->
+            <Grid Grid.Row="7"
+                  Grid.ColumnSpan="3">
+                <!--#region Grid Definitions-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="300" />
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!--#endregion-->
+
+                 <!--#region Labels-->
+                <Label Content="Film Titel" 
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+
+                <Label Content="Land"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+
+                <Label Content="År"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+
+                <Label Content="Genre"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+
+                <Label Content="Oscars"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+                <!--#endregion-->
+
+                <!--#region TextBlocks-->
+                <TextBlock x:Name="ApiTitelTextBlock"
+                           Grid.Row="0"
+                           Grid.Column="1" 
+                           Margin="5 10"/>
+
+                <TextBlock x:Name="ApiLandTextBlock"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           Margin="5 10" />
+
+                <TextBlock x:Name="ApiYearTextBlock"
+                           Grid.Row="2"
+                           Grid.Column="1"
+                           Margin="5 10" />
+
+                <TextBlock x:Name="ApiGenreTextBlock"
+                           Grid.Row="3"
+                           Grid.Column="1"
+                           Margin="5 10" />
+
+                <TextBlock x:Name="ApiOscarsTextBlock"
+                           Grid.Row="4"
+                           Grid.Column="1"
+                           Margin="5 10" />
+                <!--#endregion-->
+
+                <Grid Grid.Row="0"
+                      Grid.Column="2"
+                      Grid.RowSpan="5">
+                    <Grid.Background>
+                        <ImageBrush x:Name="Poster" />
+                    </Grid.Background>
+                </Grid>
+            </Grid>
             <!--#endregion-->
         </Grid>
         <!--#endregion-->

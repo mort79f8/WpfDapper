@@ -122,5 +122,11 @@
       <Name>WpfDapper.Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\150.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\unicorn.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
