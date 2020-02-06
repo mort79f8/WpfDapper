@@ -124,7 +124,8 @@
             <GroupBox Grid.Column="2"
                       Grid.RowSpan="7"
                       Header="Film Liste">
-                <ListBox x:Name="MovieList" DisplayMemberPath="Titel">
+                <ListBox x:Name="MovieList" DisplayMemberPath="Titel"
+                         SelectionChanged="MovieList_SelectionChanged">
                 </ListBox>
             </GroupBox>
             <!--#endregion-->
@@ -184,34 +185,40 @@
                 <TextBlock x:Name="ApiTitelTextBlock"
                            Grid.Row="0"
                            Grid.Column="1" 
-                           Margin="5 10"/>
+                           Margin="5 10"
+                           VerticalAlignment="Center"/>
 
                 <TextBlock x:Name="ApiLandTextBlock"
                            Grid.Row="1"
                            Grid.Column="1"
-                           Margin="5 10" />
+                           Margin="5 10"
+                           VerticalAlignment="Center" />
 
                 <TextBlock x:Name="ApiYearTextBlock"
                            Grid.Row="2"
                            Grid.Column="1"
-                           Margin="5 10" />
+                           Margin="5 10"
+                           VerticalAlignment="Center" />
 
                 <TextBlock x:Name="ApiGenreTextBlock"
                            Grid.Row="3"
                            Grid.Column="1"
-                           Margin="5 10" />
+                           Margin="5 10"
+                           VerticalAlignment="Center" />
 
                 <TextBlock x:Name="ApiOscarsTextBlock"
                            Grid.Row="4"
                            Grid.Column="1"
-                           Margin="5 10" />
+                           Margin="5 10"
+                           VerticalAlignment="Center" />
                 <!--#endregion-->
 
                 <Grid Grid.Row="0"
                       Grid.Column="2"
                       Grid.RowSpan="5">
                     <Grid.Background>
-                        <ImageBrush x:Name="Poster" />
+                        <ImageBrush x:Name="Poster"
+                                    Stretch="UniformToFill" />
                     </Grid.Background>
                 </Grid>
             </Grid>

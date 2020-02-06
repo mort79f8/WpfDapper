@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using WpfDapper.DAL;
 using WpfDapper.Entities;
+using WpfDapper.Services;
+using WpfDapper.Services.Entities;
 
 namespace WpfDapper.BIZ
 {
     public class ClassBiz
     {
         DataAccess db = new DataAccess();
+        FilmService filmService = new FilmService() { AppId = "6880371f" };
+        
         //public void GetAllMovies(TextBox textBox)
         //{
         //    List<Movie> movies = new List<Movie>();
@@ -55,6 +59,12 @@ namespace WpfDapper.BIZ
                 client.DownloadFile(new Uri("HttpS://via.placeholder.com/150.png"), @"d:\test\image.png");
             }
 
+        }
+
+        public Film GetFilm(string titel)
+        {
+            filmService.Titel = titel;
+            return filmService.GetFilmFromApi();
         }
     }
 }

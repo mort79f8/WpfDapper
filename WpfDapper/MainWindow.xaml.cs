@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfDapper.BIZ;
 using WpfDapper.Entities;
+using WpfDapper.Services.Entities;
 
 namespace WpfDapper.GUI
 {
@@ -34,7 +35,7 @@ namespace WpfDapper.GUI
             Movies = biz.GetAllMovies();
             MovieList.ItemsSource = Movies;
             SearchMovies(TitelSearchBox,"Titel");
-            Poster.ImageSource = new BitmapImage(new Uri("https://via.placeholder.com/150.png"));
+            
         }
 
         private void CreateMovieBtn_Click(object sender, RoutedEventArgs e)
@@ -107,6 +108,22 @@ namespace WpfDapper.GUI
         {
             Movies = biz.GetAllMovies();
             MovieList.ItemsSource = Movies;
+        }
+
+        private void MovieList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Movie movie = new Movie();
+            movie = (Movie)MovieList.SelectedItem;
+            Film filmFromApi = biz.GetFilm(movie.Titel);
+            ApiTitelTextBlock.Text = filmFromApi.Title;
+            ApiLandTextBlock.Text = filmFromApi.Country;
+            ApiYearTextBlock.Text = filmFromApi.Released;
+            ApiGenreTextBlock.Text = filmFromApi.Genre;
+            ApiOscarsTextBlock.Text = filmFromApi.Awards;
+            if (filmFromApi.Response != "False" && filmFromApi.Poster != "N/A")
+            {
+                Poster.ImageSource = new BitmapImage(new Uri(filmFromApi.Poster));
+            }
         }
     }
 }

@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7F0F5926-CC93-4DB2-BD8E-AE6401A00F65}</ProjectGuid>
+    <ProjectGuid>{700C9F25-FDC6-460D-9314-A61AF18F80F0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WpfDapper.BIZ</RootNamespace>
-    <AssemblyName>WpfDapper.BIZ</AssemblyName>
+    <RootNamespace>WpfDapper.Services</RootNamespace>
+    <AssemblyName>WpfDapper.Services</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,10 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,25 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassBiz.cs" />
+    <Compile Include="Entities\Film.cs" />
+    <Compile Include="Entities\Rating.cs" />
+    <Compile Include="FilmService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WpfDapper.DAL\WpfDapper.DAL.csproj">
-      <Project>{DD9026DA-B810-4048-9885-E321469609EB}</Project>
-      <Name>WpfDapper.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WpfDapper.Entities\WpfDapper.Entities.csproj">
-      <Project>{E4D976E4-0905-4BDD-93F5-83FC01471944}</Project>
-      <Name>WpfDapper.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WpfDapper.Services\WpfDapper.Services.csproj">
-      <Project>{700c9f25-fdc6-460d-9314-a61af18f80f0}</Project>
-      <Name>WpfDapper.Services</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

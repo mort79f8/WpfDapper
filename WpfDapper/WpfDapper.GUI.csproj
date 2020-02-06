@@ -121,6 +121,10 @@
       <Project>{E4D976E4-0905-4BDD-93F5-83FC01471944}</Project>
       <Name>WpfDapper.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WpfDapper.Services\WpfDapper.Services.csproj">
+      <Project>{700C9F25-FDC6-460D-9314-A61AF18F80F0}</Project>
+      <Name>WpfDapper.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\150.png" />
