@@ -8,7 +8,7 @@ namespace WpfDapper.Entities
 {
     public class Movie
     {
-        public int Id { get; set; }
+        public int FilmId { get; set; }
         public string Titel { get; set; }
         public string Land { get; set; }
         public int Year { get; set; }

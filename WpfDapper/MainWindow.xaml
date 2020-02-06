@@ -8,11 +8,13 @@
         Title="Film Info"
         Height="320"
         Width="650"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Activated="Window_Activated">
     <Grid>
 
-        <!--#region Search Grid-->
+        <!--#region Search Grid-->        
         <Grid Grid.Row="0">
+                
             <Grid.RowDefinitions>
                 <RowDefinition Height="35" />
                 <RowDefinition Height="35" />
@@ -28,60 +30,60 @@
                 <ColumnDefinition Width="150" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
+                
             <!--#region Textblocks,box,button-->
             <TextBlock Text="Søg titel:"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Right"
-                       Margin="10"
-                       Grid.Row="0">
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="10"
+                        Grid.Row="0">
             </TextBlock>
             <TextBox x:Name="TitelSearchBox"
-                     Grid.Column="1"
-                     Margin="5"
-                     TextChanged="TitelSearchBox_TextChanged">
+                        Grid.Column="1"
+                        Margin="5"
+                        TextChanged="TitelSearchBox_TextChanged">
             </TextBox>
             <TextBlock Text="Søg land:"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Right"
-                       Margin="10"
-                       Grid.Row="1">
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="10"
+                        Grid.Row="1">
             </TextBlock>
             <TextBox x:Name="LandSearchBox"
-                     Grid.Column="1"
-                     Grid.Row="1"
-                     Margin="5"
-                     TextChanged="LandSearchBox_TextChanged">
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Margin="5"
+                        TextChanged="LandSearchBox_TextChanged">
             </TextBox>
             <TextBlock Text="Søg år:"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Right"
-                       Margin="10"
-                       Grid.Row="2">
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="10"
+                        Grid.Row="2">
             </TextBlock>
             <TextBox x:Name="YearSearchBox"
-                     Grid.Column="1"
-                     Grid.Row="2"
-                     Margin="5"
-                     TextChanged="YearSearchBox_TextChanged">
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Margin="5"
+                        TextChanged="YearSearchBox_TextChanged">
             </TextBox>
             <TextBlock Text="Søg genre:"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Right"
-                       Margin="10"
-                       Grid.Row="3">
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="10"
+                        Grid.Row="3">
             </TextBlock>
             <TextBox x:Name="GenreSearchBox"
-                     Grid.Column="1"
-                     Grid.Row="3"
-                     Margin="5"
-                     TextChanged="GenreSearchBox_TextChanged">
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        Margin="5"
+                        TextChanged="GenreSearchBox_TextChanged">
             </TextBox>
             <TextBlock Text="Søg oscars:"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Right"
-                       Margin="10"
-                       Grid.Row="4">
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="10"
+                        Grid.Row="4">
             </TextBlock>
             <TextBox x:Name="OscarsSearchBox"
                      Grid.Column="1"
@@ -90,21 +92,30 @@
                      TextChanged="OscarsSearchBox_TextChanged">
             </TextBox>
 
-            <Button x:Name="SearchButton"
-                    Content="Søg"
-                    Grid.Row="5"
-                    Grid.Column="1"
-                    Margin="25 5"
-                    Click="SearchButton_Click" />
-            <!--#endregion-->
-
             <Button x:Name="CreateMovieBtn"
                     Grid.Column="1"
-                    Grid.Row="6" 
+                    Grid.Row="5" 
                     Margin="25 5"
                     Content="Ny Film"
                     Click="CreateMovieBtn_Click" />
 
+            <Button x:Name="UpdateMovieButton"
+                    Content="Updatere film"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Margin="25 5"
+                    Click="UpdateMovieButton_Click" />
+
+            <Button x:Name="DeleteMovieButton"
+                    Content="Slet film"
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Margin="5"
+                    Click="DeleteMovieButton_Click" />
+
+
+            <!--#endregion-->
+                       
             <!--#region Search Result-->
             <!--<TextBox x:Name="SearchResultTextBox"
                      Grid.Column="2"

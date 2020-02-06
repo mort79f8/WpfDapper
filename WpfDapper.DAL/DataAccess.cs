@@ -21,11 +21,6 @@ namespace WpfDapper.DAL
             } // close the connection again, NOTE: Always remember to close connection to the DB when you are done. 
         }
 
-        public Movie GetMovieByTitle(string titel)
-        {
-            throw new NotImplementedException();
-        }
-
         public void InsertMovie(string titel, string land, int year, string genre, int oscars)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(helper.CnnVal("FilmInfo")))
@@ -36,6 +31,28 @@ namespace WpfDapper.DAL
                 movies.Add(new Movie { Titel = titel, Land = land, Year = year, Genre = genre, Oscars = oscars });
 
                 connection.Execute("dbo.spFilm_InsertMovie @Titel, @Land, @Year, @Genre, @Oscars", movies);
+            }
+        }
+
+        public void UpdateMovie(int id, string titel, string land, int year, string genre, int oscars)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(helper.CnnVal("FilmInfo")))
+            {
+                Movie movie = new Movie { FilmId = id, Titel = titel, Land = land, Year = year, Genre = genre, Oscars = oscars };
+                List<Movie> movies = new List<Movie>();
+                movies.Add(movie);
+
+                connection.Execute("dbo.spFilm_UpdateMovie @FilmId, @Titel, @Land, @Year, @Genre, @Oscars", movies);
+            }
+        }
+
+        public void DeleteMovie(int id, string titel, string land, int year)
+        {
+            Movie movie = new Movie { FilmId = id, Titel = titel, Land = land, Year = year };
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(helper.CnnVal("FilmInfo")))
+            {
+                connection.Execute("dbo.spFilm_DeleteMovie @FilmId, @Titel, @Land, @Year", movie);
             }
         }
     }
